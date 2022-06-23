@@ -1,18 +1,19 @@
 import "./App.css";
-// import Reduce from "./ReduceExample/Simple";
-// import Standard from "./StandardExample/Simple";
-import Reduce from "./ReduceExample/RemoteData";
-import Standard from "./StandardExample/RemoteData";
+import { Route, Routes } from "react-router-dom";
+import Remote from "./Pages/Remote";
+import Simple from "./Pages/Simple";
+import Layout from "./Layout";
 
 function App() {
   return (
-    <div className="App">
-      <div className="App-header">
-        <Standard />
-        <p></p>
-        <Reduce />
-      </div>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Simple />} />
+          <Route path="remote" element={<Remote />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
