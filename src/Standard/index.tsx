@@ -8,6 +8,7 @@ const Standard = () => {
   const toggle = () => {
     const value = variant === "light" ? "dark" : "light";
     setVariant(value);
+    console.log("setVariant", value);
   };
 
   return (

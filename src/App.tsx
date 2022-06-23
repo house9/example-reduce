@@ -1,12 +1,15 @@
 import "./App.css";
+import Reduce from "./Reduce";
 import Standard from "./Standard";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-header">
         <Standard />
-      </header>
+        <p></p>
+        <Reduce />
+      </div>
     </div>
   );
 }
