@@ -1,12 +1,11 @@
-import { Action, ActionType, State } from "./state";
+import { Action, ActionType } from "./state";
 import styles from "./control.module.css";
 
 interface ControlProps {
-  state: State;
   dispatch: React.Dispatch<Action>;
 }
 
-const Control: React.FC<ControlProps> = ({ state, dispatch }) => {
+const Control: React.FC<ControlProps> = ({ dispatch }) => {
   const toggle = () => {
     dispatch({ type: ActionType.TOGGLE_VARIANT });
   };

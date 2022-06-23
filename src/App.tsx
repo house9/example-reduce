@@ -1,6 +1,8 @@
 import "./App.css";
-import Reduce from "./ReduceExample/Simple";
-import Standard from "./StandardExample/Simple";
+// import Reduce from "./ReduceExample/Simple";
+// import Standard from "./StandardExample/Simple";
+import Reduce from "./ReduceExample/RemoteData";
+import Standard from "./StandardExample/RemoteData";
 
 function App() {
   return (

@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  width: 1200px;
+  align-items: center;
+  border: 2px solid pink;
+}
+
+.left {
+  background-color: #999999;
+  width: 400px;
+}
+
+.right {
+  justify-content: right;
+  margin-left: auto;
+}

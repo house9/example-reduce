@@ -1,19 +1,22 @@
-import { useReducer } from "react";
-import Area from "./Area";
-import Control from "./Control";
 import styles from "./index.module.css";
+import { useEffect, useReducer } from "react";
+import Beers from "./Beers";
 import { initialState, reducer } from "./state";
+import { fetchBeers } from "./api";
 
 const Reduce = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const { loading } = state;
+
+  useEffect(() => {
+    fetchBeers(dispatch);
+  }, []);
 
   return (
     <div className={styles.container}>
-      <div>
-        <Area state={state} />
-      </div>
+      <div className={styles.left}>{loading && "Loading..."}</div>
       <div className={styles.right}>
-        <Control dispatch={dispatch} />
+        <Beers state={state} />
       </div>
     </div>
   );
