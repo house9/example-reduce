@@ -1,0 +1,13 @@
+.container {
+  width: 200px;
+  height: 200px;
+  border: 5px solid #cccccc;
+}
+
+.light {
+  background-color: #999999;
+}
+
+.dark {
+  background-color: #000000;
+}
