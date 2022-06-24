@@ -25,7 +25,7 @@ export const initialState: State = {
 export function reducer(state: State, action: Action) {
   const { type } = action;
 
-  console.log(type, action);
+  console.log(type, action, state);
 
   switch (type) {
     case ActionType.FETCH_BEER_REQUEST: {

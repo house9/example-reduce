@@ -1,13 +1,15 @@
-import styles from "./index.module.css";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Beer } from "./beer";
 import Beers from "./Beers";
+import Error from "../../Error";
+import axios from "axios";
+import styles from "./index.module.css";
+import { Beer } from "./beer";
+import { useEffect, useState } from "react";
 
 const Standard = () => {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
   const [data, setData] = useState<Beer[]>([]);
-  // const { isLoading, data } = useQuery(...)
+  // const { isLoading, data, error } = useQuery(...)
 
   useEffect(() => {
     setLoading(true);
@@ -18,14 +20,17 @@ const Standard = () => {
         setLoading(false);
       })
       .catch((e) => {
-        console.error(e);
+        setError(e);
         setLoading(false);
       });
   }, []);
 
   return (
     <div className={styles.container}>
-      <div className={styles.left}>{loading && "Loading..."}</div>
+      <div className={styles.left}>
+        {error && <Error error={error} />}
+        {loading && "Loading..."}
+      </div>
       <div className={styles.right}>
         <Beers beers={data} />
       </div>

@@ -1,12 +1,13 @@
-import styles from "./index.module.css";
-import { useEffect, useReducer } from "react";
 import Beers from "./Beers";
-import { initialState, reducer } from "./state";
+import Error from "../../Error";
+import styles from "./index.module.css";
 import { fetchBeers } from "./api";
+import { initialState, reducer } from "./state";
+import { useEffect, useReducer } from "react";
 
 const Reduce = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { loading } = state;
+  const { error, loading } = state;
 
   useEffect(() => {
     fetchBeers(dispatch);
@@ -14,7 +15,10 @@ const Reduce = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.left}>{loading && "Loading..."}</div>
+      <div className={styles.left}>
+        {error && <Error error={error} />}
+        {loading && "Loading..."}
+      </div>
       <div className={styles.right}>
         <Beers state={state} />
       </div>
